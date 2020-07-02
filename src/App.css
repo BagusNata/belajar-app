@@ -1,38 +1,61 @@
-.App {
+/* ==> Header <== */
+.market-headerr {
+  color: black;
   text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* _______________________________________________________________________________________________________________________________________ */
+
+/* ==> Card List CSS <== */
+.card {
+  display: inline-block !important;
+  width: min-content !important;
+  margin-left: 30px !important;
+  margin-bottom: 30px !important;
+}
+.shoes-cardd {
+  display: inline-block;
+}
+.img {
+  width: 243px;
+  height: 175px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ________________________________________________________________________________________________________________________________________ */
+
+/* ==> Button CSS <== */
+.button {
+  color: green;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.full-width {
+  width: 100%;
+}
+
+.btnn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.btn-outline-success {
+    color: orange !important;
+    border-color: orange !important;
+}
+
+/* ________________________________________________________________________________________________________________________________________ */
+
+/* ==> Add New Shoes CSS <== */
+.addshoes {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.styleflexx {
+  text-align: center;
+  background: rgba(224, 222, 222, 0.247) !important;
+  padding: 2rem 3rem;
+  margin-bottom: 6rem;
+ 
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* ________________________________________________________________________________________________________________________________________ */
