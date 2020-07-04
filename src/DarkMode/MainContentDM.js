@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "./HeaderDM";
 
 export class MainContent extends Component {
   constructor(props) {
@@ -35,6 +36,68 @@ export class MainContent extends Component {
         price: 224,
         picture:
           "https://stockx.imgix.net/Air-Jordan-6-Retro-DMP-2020-Product.jpg",
+      },
+      {
+        id: 4,
+        name: "Jordan 1 Mid Camo (2020)",
+        price: 203,
+        picture: "https://stockx.imgix.net/Air-Jordan-1-Mid-Camo-2020.png",
+      },
+      {
+        id: 5,
+        name: "Jordan 1 Retro Bred (2001)",
+        price: 600,
+        picture:
+          "https://stockx.imgix.net/Air-Jordan-1-Retro-Bred-2001-Product.jpg",
+      },
+      {
+        id: 6,
+        name: "Adidas Yeezy Boost 350 V2",
+        price: 305,
+        picture:
+          "https://stockx.imgix.net/Adidas-Yeezy-Boost-350-V2-Zebra-Product-1.jpg",
+      },
+      {
+        id: 7,
+        name: "Jordan 1 Retro High Royal Toe",
+        price: 210,
+        picture:
+          "https://stockx.imgix.net/Air-Jordan-1-Retro-High-Black-Game-Royal.png",
+      },
+      {
+        id: 8,
+        name: "Jordan 1 Retro High Pine green",
+        price: 197,
+        picture:
+          "https://stockx.imgix.net/Air-Jordan-1-Retro-High-Pine-Green-Black-Product.jpg",
+      },
+      {
+        id: 9,
+        name: "Jordan 1 Retro High NC to Chi",
+        price: 199,
+        picture:
+          "https://stockx.imgix.net/Air-Jordan-1-Retro-High-UNC-Chicago-Leather-W-Product.jpg",
+      },
+      {
+        id: 10,
+        name: "Jordan 5 Retro Fire Red Silver",
+        price: 232,
+        picture:
+          "https://stockx.imgix.net/Air-Jordan-5-Retro-Fire-Red-Silver-Tongue-2020.png",
+      },
+      {
+        id: 11,
+        name: "Nike Air Force 1 Low White '07 ",
+        price: 89,
+        picture:
+          "https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg",
+      },
+      {
+        id: 12,
+        name: "Adidas Yeezy Boost 700 Wave",
+        price: 390,
+        picture:
+          "https://stockx.imgix.net/Adidas-Yeezy-Wave-Runner-700-Solid-Grey-Product.jpg",
       },
     ];
     this.setState({ shoes: shoeData });
@@ -73,7 +136,7 @@ export class MainContent extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.name == 0) {
+    if (this.state.name === 0) {
       return;
     }
     // create shoe object to push into shoe array in state
@@ -81,9 +144,9 @@ export class MainContent extends Component {
       id: Date.now().toString(),
       name: this.state.name,
       price: this.state.price,
-      picture: this.state.picture
+      picture: this.state.picture,
     };
-    console.log("new state",this.state.shoes);
+    console.log("new state", this.state.shoes);
     console.log("new shoe", newShoe);
     // get all the shoes from state
     const shoes = [...this.state.shoes];
@@ -91,18 +154,21 @@ export class MainContent extends Component {
     shoes.push(newShoe);
     // clear form for next item
     this.setState({
-      shoes:shoes,
-      name:"",
-      price:"",
-      picture:""
+      shoes: shoes,
+      name: "",
+      price: "",
+      picture: "",
     });
-    console.log("clicked")
+    console.log("clicked");
     return;
   };
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]:
+        event.target.type === "number"
+          ? parseInt(event.target.value)
+          : event.target.value,
     });
   };
 
@@ -113,14 +179,14 @@ export class MainContent extends Component {
 
     return (
       <div>
+        <Header />
         <div className="container addshoes">
-          <div div className="styleflexx">
+          <div div className="styleflex">
             <h3>Add New Shoe</h3>
             <form onSubmit={this.handleSubmit}>
               <label>Enter the shoe data that you want to add here :</label>
               <br />
               <input
-                type="text"
                 name="name"
                 placeholder="shoe name"
                 value={this.state.name}
@@ -134,25 +200,35 @@ export class MainContent extends Component {
                 onChange={this.handleChange}
               />
               <input
-                type="text"
                 name="picture"
                 placeholder="shoe picture"
                 value={this.state.picture}
                 onChange={this.handleChange}
               />
               <br />
-              <button>add</button>
+              <button style={{ marginTop: "1rem" }}>add</button>
             </form>
           </div>
         </div>
 
         <div className="container">
-          <div>{ShoeCards}</div>
-          <h3 style={{ marginTop: "3rem" }}>Cart :</h3>
-          <ul>{this.getCartList()} </ul>
-          <hr />
-          <strong>Total : ${this.getTotalPrice()}</strong>
-          <hr />
+          <div>
+            <div>{ShoeCards}</div>
+            <div
+              className="totalStyle"
+              style={{
+                display: "block",
+                background: "whitesmoke",
+                color: "black",
+              }}
+            >
+              <h3 style={{ marginTop: "3rem" }}>Cart :</h3>
+              <ul>{this.getCartList()} </ul>
+              <hr />
+              <strong>Total : ${this.getTotalPrice()}</strong>
+              <hr />
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -164,8 +240,8 @@ function ShoeCard(props) {
     props.addToCard(props.shoe);
   };
   return (
-    <div className="card shoes-cardd">
-      <img className="img" src={props.shoe.picture} />
+    <div className="card shoes-cardDM">
+      <img className="img" src={props.shoe.picture} alt="" />
       <div className="card-body" alt="">
         <p className="card-text">{props.shoe.name}</p>
         <p className="card-text">${props.shoe.price}</p>
