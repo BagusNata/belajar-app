@@ -1,6 +1,15 @@
 import React, { Component } from "react";
+import { generate } from "shortid";
 import Header from "./HeaderDM";
 
+const initialState = {
+  name: "",
+  price: "",
+  picture: "",
+  nameError: "",
+  priceError: "",
+  pictureError: "",
+};
 export class MainContent extends Component {
   constructor(props) {
     super(props);
@@ -8,9 +17,7 @@ export class MainContent extends Component {
       shoes: [],
       cart: [],
       total: 0,
-      name: "",
-      price: "",
-      picture: "",
+      initialState,
     };
     this.addToCard = this.addToCard.bind(this);
   }
@@ -134,31 +141,60 @@ export class MainContent extends Component {
     return total;
   }
 
+  validate = () => {
+    let nameError = "";
+    let priceError = "";
+    let pictureError = "";
+
+    if (!this.state.name) {
+      nameError = "name cannot be blank!";
+    }
+    if (!this.state.price) {
+      priceError = "price cannot be blank!";
+    }
+    if (!this.state.picture.includes("https://")) {
+      pictureError = "invalid picture link!";
+    }
+
+    if (nameError || priceError || pictureError) {
+      this.setState({ nameError, priceError, pictureError });
+      return false;
+    }
+
+    return true;
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.name === 0) {
-      return;
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+      // clear form
+      this.setState(initialState);
+
+      const newShoe = {
+        id: generate(),
+        name: this.state.name,
+        price: this.state.price,
+        picture: this.state.picture,
+      };
+      console.log("new state", this.state.shoes);
+      console.log("new shoe", newShoe);
+
+      // get all the shoes from state
+      const shoes = [...this.state.shoes];
+
+      // add new shoe to the shoes array in state
+      shoes.push(newShoe);
+
+      // clear form for next item
+      this.setState({
+        shoes: shoes,
+        name: "",
+        price: "",
+        picture: "",
+      });
     }
-    // create shoe object to push into shoe array in state
-    const newShoe = {
-      id: Date.now().toString(),
-      name: this.state.name,
-      price: this.state.price,
-      picture: this.state.picture,
-    };
-    console.log("new state", this.state.shoes);
-    console.log("new shoe", newShoe);
-    // get all the shoes from state
-    const shoes = [...this.state.shoes];
-    // add new shoe to the shoes array in state
-    shoes.push(newShoe);
-    // clear form for next item
-    this.setState({
-      shoes: shoes,
-      name: "",
-      price: "",
-      picture: "",
-    });
     console.log("clicked");
     return;
   };
@@ -174,7 +210,12 @@ export class MainContent extends Component {
 
   render() {
     const ShoeCards = this.state.shoes.map((shoe) => (
-      <ShoeCard shoe={shoe} addToCard={this.addToCard} />
+      <ShoeCard
+        key={shoe.id}
+        shoe={shoe}
+        price={shoe.price}
+        addToCard={this.addToCard}
+      />
     ));
 
     return (
@@ -186,25 +227,43 @@ export class MainContent extends Component {
             <form onSubmit={this.handleSubmit}>
               <label>Enter the shoe data that you want to add here :</label>
               <br />
-              <input
-                name="name"
-                placeholder="shoe name"
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-              <input
-                type="number"
-                name="price"
-                placeholder="shoe price"
-                value={this.state.price}
-                onChange={this.handleChange}
-              />
-              <input
-                name="picture"
-                placeholder="shoe picture"
-                value={this.state.picture}
-                onChange={this.handleChange}
-              />
+              <div>
+                <input
+                  name="name"
+                  placeholder="Shoe name"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+                <div style={{ fontSize: 12, color: "red" }}>
+                  {this.state.nameError}
+                </div>
+              </div>
+
+              <div>
+                <input
+                  type="number"
+                  name="price"
+                  placeholder="Shoe price"
+                  value={this.state.price}
+                  onChange={this.handleChange}
+                />
+                <div style={{ fontSize: 12, color: "red" }}>
+                  {this.state.priceError}
+                </div>
+              </div>
+
+              <div>
+                <input
+                  name="picture"
+                  placeholder="Shoe picture"
+                  value={this.state.picture}
+                  onChange={this.handleChange}
+                />
+                <div style={{ fontSize: 12, color: "red" }}>
+                  {this.state.pictureError}
+                </div>
+              </div>
+
               <br />
               <button style={{ marginTop: "1rem" }}>add</button>
             </form>
