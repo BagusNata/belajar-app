@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { generate } from "shortid";
 import Header from "./HeaderDM";
+import Navbar from "./NavbarDM"
 
 const initialState = {
   name: "",
@@ -220,6 +221,7 @@ export class MainContent extends Component {
 
     return (
       <div>
+        <Navbar/>
         <Header />
         <div className="container addshoes">
           <div div className="styleflex">
@@ -304,7 +306,7 @@ function ShoeCard(props) {
       <div className="card-body" alt="">
         <p className="card-text">{props.shoe.name}</p>
         <p className="card-text">${props.shoe.price}</p>
-        <button onClick={clickBuyBtn} className="btn btn-success full-width">
+        <button onClick={clickBuyBtn} className="btn btn-success btncolor full-width">
           Buy
         </button>
       </div>

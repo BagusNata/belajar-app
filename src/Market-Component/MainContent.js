@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { generate } from "shortid";
 import Header from "./Header";
+import Navbar from "./Navbar"
 
 const initialState = {
   name: "",
@@ -208,6 +209,7 @@ export class MainContent extends Component {
     });
   };
 
+
   render() {
     const ShoeCards = this.state.shoes.map((shoe) => (
       <ShoeCard
@@ -220,7 +222,8 @@ export class MainContent extends Component {
 
     return (
       <div style={{ background: "#fafafa" }}>
-        <Header />
+          <Navbar />
+          <Header />
         <div className="container addshoes">
           <div className="styleflexx">
             <h3>Add New Shoe</h3>
@@ -238,7 +241,6 @@ export class MainContent extends Component {
                   {this.state.nameError}
                 </div>
               </div>
-
               <div>
                 <input
                   type="number"
@@ -251,7 +253,6 @@ export class MainContent extends Component {
                   {this.state.priceError}
                 </div>
               </div>
-
               <div>
                 <input
                   name="picture"
@@ -263,7 +264,6 @@ export class MainContent extends Component {
                   {this.state.pictureError}
                 </div>
               </div>
-
               <br />
               <button style={{ marginTop: "1rem" }}>add</button>
             </form>
@@ -272,11 +272,20 @@ export class MainContent extends Component {
 
         <div className="container">
           <div>{ShoeCards}</div>
-          <h3 style={{ marginTop: "3rem" }}>Cart :</h3>
-          <ul>{this.getCartList()} </ul>
-          <hr />
-          <strong>Total : ${this.getTotalPrice()}</strong>
-          <hr />
+          <div
+            className="totalStylee"
+            style={{
+              display: "block",
+              background: "whitesmoke",
+              color: "black",
+            }}
+          >
+            <h3 style={{ marginTop: "3rem",paddingLeft:"10px" }}>Cart :</h3>
+            <ul>{this.getCartList()} </ul>
+            <hr />
+            <strong style={{paddingLeft:"10px"}}>Total : ${this.getTotalPrice()}</strong>
+            <hr />
+          </div>
           <br />
         </div>
       </div>
@@ -294,7 +303,7 @@ function ShoeCard(props) {
       <div className="card-body" alt="">
         <p className="card-text">{props.shoe.name}</p>
         <p className="card-text">${props.price}</p>
-        <button onClick={clickBuyBtn} className="btn btn-success full-width">
+        <button onClick={clickBuyBtn} className="btn btn-success btncolor full-width">
           Buy
         </button>
       </div>

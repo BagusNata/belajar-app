@@ -2,8 +2,21 @@
 .market-header {
   color: black;
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 4.5rem;
   margin-bottom: 100px;
+}
+.totalStylee {
+  display: "block";
+  background: rgba(224, 222, 222, 0.247) !important;
+  color: "black";
+}
+
+/* navbar login punya */
+.welcome {
+  display: inline-flex;
+    color: white;
+    padding-top: 8px;
+    margin-left: 23rem;
 }
 
 /* _______________________________________________________________________________________________________________________________________ */
@@ -49,9 +62,11 @@
 .addshoes {
   display: flex;
   justify-content: center;
+  padding-bottom: 1rem;
 }
 .styleflexx {
   text-align: center;
+  background: rgba(224, 222, 222, 0.247) !important;
   background: rgba(224, 222, 222, 0.247) !important;
   padding: 2rem 3rem;
   margin-bottom: 6rem;
@@ -141,4 +156,102 @@
   margin-bottom: 2rem;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+
+/* ERROR */
+.error {
+  font-size: 12;
+  color: red;
+}
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+
+/* LOGIN */
+label {
+  display: inline-block !important;
+  margin-bottom: 0.1rem !important;
+}
+.loginflex {
+  background: white;
+  opacity: 92%;
+  padding: 2rem 3rem;
+  margin-bottom: 6rem;
+}
+.borderform {
+  border-radius: 6px;
+  border: 1px solid black !important;
+}
+.backgroundLogin {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTkOFVV5RaTEt-oEZrKY32aEH9URuEdcza12g&usqp=CAU");
+}
+.btncolor {
+  color: white !important;
+    background-color: #2d7b3f !important;
+    border-color: #2d7b3f !important;
+}
+.loginbtn {
+    font-weight: 550 !important;
+    padding: 0rem 0rem !important;
+    font-size: 1rem !important;
+    border-radius: 0.5rem !important;
+}
+
+
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________________________________________________ */
+
+/* margin top */
+.mt1 {
+  margin-top: 1rem;
+}
+.mt2 {
+  margin-top: 2rem;
+}.mt3 {
+  margin-top: 3rem;
+}.mt4 {
+  margin-top: 4rem;
+}
+.mt5 {
+  margin-top: 5rem;
+}.mt6{
+  margin-top: 6rem;
+}
+.mt7 {
+  margin-top: 7rem;
+}
+
+/* margin bottom */
+.mb1 {
+  margin-bottom: 1rem;
+}
+.mb2 {
+  margin-bottom: 2rem;
+}
+
+/* margin left */
+.ml35 {
+  margin-left: 3.5rem;
+}
+
+/* text align */
+.tac {
+  text-align: center !important;
+}
+.tal {
+  text-align: left;
+}
+
+/* opacity */
+.op100 {
+  opacity: 100% !important;
 }

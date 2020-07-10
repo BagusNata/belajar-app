@@ -7,7 +7,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div className="navbar-brand">
           <Link
-            to="/"
+            to="/Home"
             className="nav-link"
             style={{ color: "orange", fontWeight: "bold" }}
           >
@@ -28,6 +28,15 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            {/* <li className="nav-item">
+              <Link
+                to="/"
+                className="nav-link"
+                style={{ color: "white", marginLeft: "1rem" }}
+              >
+                Login
+              </Link>
+            </li> */}
             <li className="nav-item">
               <Link
                 to="/About"
@@ -44,6 +53,12 @@ export default function Navbar() {
                 style={{ color: "white" }}
               >
                 Dark Mode
+              </Link>
+            </li>
+            <div style={{ color: "white", paddingTop: "7.5px" }}>||</div>
+            <li className="nav-item">
+              <Link to="/" className="nav-link" style={{ color: "white" }}>
+                Log Out
               </Link>
             </li>
           </ul>

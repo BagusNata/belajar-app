@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Navbar from "./NavbarApp"
 export class About extends Component {
   constructor(props) {
     super(props);
@@ -9,6 +9,7 @@ export class About extends Component {
   render() {
     return (
       <div style={{ background: "#fafafa" }}>
+        <Navbar/>
         <div className="container Normal-background">
           <h1 className="about-header">Muvesuna</h1>
           
