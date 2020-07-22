@@ -53,7 +53,7 @@ export class Login extends Component {
 
   render() {
     return (
-      <div className="backgroundLogin" style={{paddingBottom:"10.5rem"}}>
+      <div className="backgroundLogin" style={{paddingBottom: "1.2rem"}}>
         <div>
           <Navbar />
         </div>

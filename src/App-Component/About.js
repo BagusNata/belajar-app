@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from "./NavbarApp"
+import Navbar from "../Navbar"
 export class About extends Component {
   constructor(props) {
     super(props);

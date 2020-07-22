@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { generate } from "shortid";
 import Header from "./Header";
-import Navbar from "./Navbar"
+import Navbar from "../Navbar"
 import { environtment } from "../environtment";
 
 const initialState = {
